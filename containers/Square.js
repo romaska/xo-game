@@ -1,18 +1,20 @@
 import React, {Component} from 'react';
 
 
-var squareCss = {
+const squareCss = {
     width: 30,
     height: 30,
     border: "1px solid black",
-    display: "inline-block"
+    display: "inline-block",
+    verticalAlign: "top",
+    textAlign: "center"
 };
 
 
 export default class Square extends Component {
     render() {
         return (
-            <div style={squareCss} onClick={() => this.onClickHandler()}>
+            <div id={this.props.id} style={squareCss} onClick={() => this.props.onSquareClickHandler(this.props.id)}>
                 {this.props.playerChar}
             </div>
         )
