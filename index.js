@@ -1,7 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+
 
 // main app
-import App from './containers/App';
+import Board from './containers/Board';
+import reducer from './reducers/xoGameReducer.js';
 
-ReactDOM.render(<App />, document.getElementById('app'))
+
+const store = createStore(reducer)
+
+render(
+    <Provider store={store}>
+        <Board />
+    </Provider>,
+    document.getElementById('app')
+)
